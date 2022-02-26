@@ -1,4 +1,4 @@
-var tasks =["", "", "", "", "", "", "", "", ""];
+var tasks =[" ", " ", " ", " ", " ", " ", " ", " ", " "];
 
 var loadTasks = function() {
     tasks = JSON.parse(localStorage.getItem("tasks"));
@@ -7,12 +7,15 @@ var loadTasks = function() {
   // if nothing in localStorage, create a new object to track all task status arrays
     if (!tasks) {
     console.log("no tasks");
-    tasks =["", "", "", "", "", "", "", "", ""];
+    tasks =[" ", " ", " ", " ", " ", " ", " ", " ", " "];
+
+    //if there is an array, go ahead and place them in their respective spots
     } else for (var i=0; i<tasks.length; i++) {
         console.log(tasks[i]);
+        // $("#index-" + i).append("<p>");
         $("#index-" + i).find("p").text(tasks[i]);
     }
-    
+
    $("#currentDay").text("Today is " + moment().format("dddd, MMMM Do YYYY, h:mm a"));
 };
 
@@ -26,6 +29,21 @@ $(".btn").on("click", function() {
 });
 
 
+// $(".log-slot").on("click", function() {
+
+//     if ($(this).children().length > 0) {
+//         return;
+//     } 
+
+//     var text = " "
+//     var textInput = $("<textarea>")
+//     .addClass("highlight")
+//     .val(text);
+
+//     $(this).append(textInput);
+//     textInput.trigger("focus");
+// });
+
 //TOGGLE EDIT 
 $(".log-slot").on("click", "p", function() {
     var text = $(this)
@@ -34,7 +52,9 @@ $(".log-slot").on("click", "p", function() {
     var textInput = $("<textarea>")
     .addClass("highlight")
     .val(text);
+    
     $(this).replaceWith(textInput);
+
     textInput.trigger("focus");
 });
 
@@ -45,7 +65,9 @@ $(".log-slot").on("blur","textarea",function(){
     var text = $(this)
     .val()
     .trim();
-    
+    if (!text) {
+        text = " ";
+    };
     // get the task's index
     var index = $(this).closest("div").attr("id");
     index = index.slice(-1);
