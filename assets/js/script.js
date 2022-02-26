@@ -1,21 +1,18 @@
-var tasks = {};
+var tasks =["", "", "", "", "", "", "", "", ""];
 
 var loadTasks = function() {
     tasks = JSON.parse(localStorage.getItem("tasks"));
+    console.log(tasks);
     
   // if nothing in localStorage, create a new object to track all task status arrays
-  if (!tasks) {
-      tasks = {};
+    if (!tasks) {
+    console.log("no tasks");
+    tasks =["", "", "", "", "", "", "", "", ""];
+    } else for (var i=0; i<tasks.length; i++) {
+        console.log(tasks[i]);
+        $("#index-" + i).find("p").text(tasks[i]);
     }
     
-    // loop over object properties
-    // $.each(tasks, function(list, arr) {
-    //     // then loop over sub-array
-    //     arr.forEach(function(task) {
-    //         createTask(task.text, list);
-    //     });
-    // });
-
    $("#currentDay").text("Today is " + moment().format("dddd, MMMM Do YYYY, h:mm a"));
 };
 
@@ -49,17 +46,16 @@ $(".log-slot").on("blur","textarea",function(){
     .val()
     .trim();
     
-    // get the task's position in the list of other li elements
-    var index = $(this)
-    .closest(".log-slot")
-    .index();
-    
-    tasks[index].text = text;
+    // get the task's index
+    var index = $(this).closest("div").attr("id");
+    index = index.slice(-1);
+    index = JSON.parse(index);
+    tasks[index] = text;
     saveTasks();
     
     // recreate p element
     var taskP = $("<p>")
-    .removeClass("highlight")
+    // .removeClass("highlight")
     .text(text);
     
     // replace textarea with p element
