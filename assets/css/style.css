@@ -32,7 +32,7 @@ textarea{
 
 .row {
   white-space: pre-wrap;
-  height: 80px;
+  /* height: 80px; */
   border-top: 1px solid white;
 }
 
@@ -71,14 +71,47 @@ textarea{
   font-size: 20px;
   transition: all .3s ease-in-out;
 }
+
+/* Left side styles */
 .border-dot {
   border-bottom: 3px dotted gray;
 }
 .top-dot {
   border-top: 3px dotted gray;
 }
+.border-l {
+  border-left: 4px solid gray;
+}
+/* Right side styles */
 .btn-wide {
   padding: 1.375rem 1.75rem;
 }
+.border-r {
+ border-right: 4px solid teal;
+}
 
+/* Middle column styles */
+.border-tb {
+  border-top:2px solid rgb(255, 255, 255);
+  border-bottom: 2px solid white;
+}
+/* When highlighted with OnClick, do this to middle column */
+.highlight {
+  /* border: 4px solid #0080FF; */
+  width: 100%;
+  font-size: 15px;
+  border-left: none;
+}
+
+/* Background colors */
+.bg-past {
+  background-color: #d3d3d3;
+}
+#currentDay {
+  font-weight: bolder;
+  text-decoration: underline;
+}
+.middle {
+
+}
 
