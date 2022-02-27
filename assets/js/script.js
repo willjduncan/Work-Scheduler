@@ -28,22 +28,6 @@ $(".btn").on("click", function() {
 
 });
 
-
-// $(".log-slot").on("click", function() {
-
-//     if ($(this).children().length > 0) {
-//         return;
-//     } 
-
-//     var text = " "
-//     var textInput = $("<textarea>")
-//     .addClass("highlight")
-//     .val(text);
-
-//     $(this).append(textInput);
-//     textInput.trigger("focus");
-// });
-
 //TOGGLE EDIT 
 $(".log-slot").on("click", "p", function() {
     var text = $(this)
@@ -54,10 +38,9 @@ $(".log-slot").on("click", "p", function() {
     .val(text);
     
     $(this).replaceWith(textInput);
-
+    
     textInput.trigger("focus");
 });
-
 
 //FINISH EDIT
 $(".log-slot").on("blur","textarea",function(){
@@ -87,19 +70,22 @@ $(".log-slot").on("blur","textarea",function(){
 
 var auditTask = function(taskEl) {
     // get date from task element
-    var date = $(taskEl).find("span").text().trim();
+    var date = $(taskEl).find(id).value()
+    console.log(date);
     
     // convert to moment object at 5:00pm
     var time = moment(date, "L").set("hour", 17);
     
     // remove any old classes from element
-    $(taskEl).removeClass("list-group-item-warning list-group-item-danger");
+    $(taskEl).removeClass("bg-past bg-present bg-future");
     
     // apply new class if task is near/over due date
     if (moment().isAfter(time)) {
-        $(taskEl).addClass("list-group-item-danger");
-    } else if (Math.abs(moment().diff(time, "days")) <= 2) {
-        $(taskEl).addClass("list-group-item-warning");
+        $(taskEl).addClass("bg-past");
+    } else if (moment().hours === time) {
+        $(taskEl).addClass(".bg-present");
+    } else if(Math.abs(moment().diff(time, "hours")) <= 1) {
+        $(taskEl).addClass("bg-future");
     }
 };
 
@@ -112,3 +98,18 @@ setInterval(function () {
 
 // load tasks for the first time
 loadTasks();
+
+// $(".log-slot").on("click", function() {
+
+//     if ($(this).children().length > 0) {
+//         return;
+//     } 
+
+//     var text = " "
+//     var textInput = $("<textarea>")
+//     .addClass("highlight")
+//     .val(text);
+
+//     $(this).append(textInput);
+//     textInput.trigger("focus");
+// });

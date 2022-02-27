@@ -107,6 +107,12 @@ textarea{
 .bg-past {
   background-color: #d3d3d3;
 }
+.bg-present {
+  background-color: orange;
+}
+.bg-future {
+  background-color: #77dd77;
+}
 #currentDay {
   font-weight: bolder;
   text-decoration: underline;
