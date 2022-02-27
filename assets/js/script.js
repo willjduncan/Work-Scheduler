@@ -1,4 +1,5 @@
 var tasks =[" ", " ", " ", " ", " ", " ", " ", " ", " "];
+const timeIndexDiff = 9;
 
 var loadTasks = function() {
     tasks = JSON.parse(localStorage.getItem("tasks"));
@@ -14,6 +15,7 @@ var loadTasks = function() {
         console.log(tasks[i]);
         // $("#index-" + i).append("<p>");
         $("#index-" + i).find("p").text(tasks[i]);
+        auditTask($("#index-" + i).find("p"));
     }
 
    $("#currentDay").text("Today is " + moment().format("dddd, MMMM Do YYYY, h:mm a"));
@@ -24,6 +26,7 @@ var saveTasks = function() {
     localStorage.setItem("tasks", JSON.stringify(tasks));
 };
 
+//ACTIVATE SAVE BUTTONS
 $(".btn").on("click", function() {
 
 });
@@ -65,32 +68,36 @@ $(".log-slot").on("blur","textarea",function(){
     
     // replace textarea with p element
     $(this).replaceWith(taskP);
-});
 
+    // Pass task's p element into auditTask() to check due date
+    auditTask($(taskP));
+});
 
 var auditTask = function(taskEl) {
     // get date from task element
-    var date = $(taskEl).find(id).value()
-    console.log(date);
-    
-    // convert to moment object at 5:00pm
-    var time = moment(date, "L").set("hour", 17);
+    var date = $(taskEl).parent().attr("id");
+    date = date.slice(-1);
+    date = JSON.parse(date);
+    date = date + timeIndexDiff;
+    var now = moment().hour();
+    var elder = $(taskEl).parent();
     
     // remove any old classes from element
-    $(taskEl).removeClass("bg-past bg-present bg-future");
+    $(taskEl).removeClass("past present future");
     
     // apply new class if task is near/over due date
-    if (moment().isAfter(time)) {
-        $(taskEl).addClass("bg-past");
-    } else if (moment().hours === time) {
-        $(taskEl).addClass(".bg-present");
-    } else if(Math.abs(moment().diff(time, "hours")) <= 1) {
-        $(taskEl).addClass("bg-future");
+    if (now > date) {
+        $(elder).addClass("past");
+    } else if (now < date) {
+        $(elder).addClass("future");
+    } else if (now === date) {
+        $(elder).addClass("present");
     }
 };
 
 setInterval(function () {
-    $(".card .list-group-item").each(function(index, el) {
+    debugger;
+    $(".middle .highlight").each(function(el) {
         auditTask(el);
     });
     $("#currentDay").text("Today is " + moment().format("dddd, MMMM Do YYYY, h:mm a"));
