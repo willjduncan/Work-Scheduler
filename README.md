@@ -41,6 +41,9 @@ WHEN I refresh the page
 
 THEN the saved events persist
 
+I began with looking over the code already in place, familiarizing myself with the classes and double-checking API sourcing. Once done, I started by adding all the HTML divs I planned to use, and began styling them, using the first two rows to test my code before applying it further down the page. 
+
+Once done with the styling and blocking, I turned my attention to javaScript. 
 <!-- First, I wrote the basic HTML, including the introduction and a few empty divs that I'd fill later on. I added a little bit of CSS next to give it a basic, but pleasant appearance. Then I created my questions, forming it in an array. 
 
 Next, I added a timer that would start once the Begin button was clicked. From there, I focused on finding a way to run through my array. I initially tried a for loop, but I couldn't manage to find a way to get the for loop to wait for a response click before moving on to the next question. Instead, I dissembled the for loop and made the quiz move on to the next array object by adding one to the index variable and calling the createChoice function again. This worked. 
@@ -116,9 +119,9 @@ SOFTWARE.
 
 
 
-1. Have the save buttons work
-2. change colors for time
+<!-- 1. Have the save buttons work -->
+<!-- 2. change colors for time -->
 3. do ReadMe
-4. Double check guidelines
-5. find a way to auditTask more often
+<!-- 4. Double check guidelines -->
+<!-- 5. find a way to auditTask more often -->
 6. refactor code to prevent index

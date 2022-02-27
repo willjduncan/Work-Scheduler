@@ -3,17 +3,14 @@ const timeIndexDiff = 9;
 
 var loadTasks = function() {
     tasks = JSON.parse(localStorage.getItem("tasks"));
-    console.log(tasks);
     
   // if nothing in localStorage, create a new object to track all task status arrays
     if (!tasks) {
-    console.log("no tasks");
     tasks =[" ", " ", " ", " ", " ", " ", " ", " ", " "];
 
     //if there is an array, go ahead and place them in their respective spots
     } else for (var i=0; i<tasks.length; i++) {
         console.log(tasks[i]);
-        // $("#index-" + i).append("<p>");
         $("#index-" + i).find("p").text(tasks[i]);
         auditTask($("#index-" + i).find("p"));
     }
@@ -28,7 +25,7 @@ var saveTasks = function() {
 
 //ACTIVATE SAVE BUTTONS
 $(".btn").on("click", function() {
-
+    saveTasks();
 });
 
 //TOGGLE EDIT 
@@ -59,7 +56,7 @@ $(".log-slot").on("blur","textarea",function(){
     index = index.slice(-1);
     index = JSON.parse(index);
     tasks[index] = text;
-    saveTasks();
+    // saveTasks();
     
     // recreate p element
     var taskP = $("<p>")
@@ -76,11 +73,13 @@ $(".log-slot").on("blur","textarea",function(){
 var auditTask = function(taskEl) {
     // get date from task element
     var date = $(taskEl).parent().attr("id");
+    console.log(date);
     date = date.slice(-1);
     date = JSON.parse(date);
     date = date + timeIndexDiff;
     var now = moment().hour();
     var elder = $(taskEl).parent();
+    console.log("commence audit");
     
     // remove any old classes from element
     $(taskEl).removeClass("past present future");
@@ -96,12 +95,14 @@ var auditTask = function(taskEl) {
 };
 
 setInterval(function () {
-    debugger;
-    $(".middle .highlight").each(function(el) {
-        auditTask(el);
-    });
+    for (var i=0; i < tasks.length; i++) {
+            var indexn = "index-" + i;
+            var el = document.getElementById(indexn);
+            var actualEl = $(el).find($("p"));
+            auditTask(actualEl);
+    }
     $("#currentDay").text("Today is " + moment().format("dddd, MMMM Do YYYY, h:mm a"));
-}, 1000*60);
+}, 1000*10);
 
 // load tasks for the first time
 loadTasks();
