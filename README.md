@@ -51,33 +51,33 @@ From there, I focused on getting the colors to change based on time. Again, for 
 
 Now, when a user goes on, they will be notified of the time with a constantly adjusting clock. By clicking the middle column they can type a task at whatever time slot they desire between 9 and 5 and by pressing the button of the right, they can save their log. In addition, the colors adjust to alert the user what parts of the schedule are over, in the future, or currently occurring. 
 
-<!-- ## Installation
+## Installation
 
-My repository on GitHub is named code-quiz. The link to this repository is below.
+My repository on GitHub is named Work-Scheduler. The link to this repository is below.
 
-[git@github.com:willjduncan/code-quiz.git](git@github.com:willjduncan/code-quiz.git)
+[git@github.com:willjduncan/Work-Scheduler.git](git@github.com:willjduncan/Work-Scheduler.git)
 
 
 The link to the live website is below: 
 
-[https://willjduncan.github.io/code-quiz/](https://willjduncan.github.io/code-quiz/)
+[hhttps://willjduncan.github.io/Work-Scheduler/](https://willjduncan.github.io/Work-Scheduler/)
 
 
 ## Usage
 
 Screenshots are shown of the HTML, CSS, and JavaScript pages, all built from scratch. 
 
-![screenshot of HTML](/assets/images/Screenshot-HTML.png)
-![screenshot of CSS](/assets/images/Screenshot-CSS.png)
-![screenshot of JavaScript](/assets/images/Screenshot-JavaScript.png)
+![screenshot of HTML](/assets/images/screenshot-html.png)
+
+![screenshot of CSS](/assets/images/screenshot-css.png)
+
+![screenshot of JavaScript](/assets/images/screenshot-js.png)
 
 
-Screenshots are also provided of the quiz in its main forms: the beginning, mid-quiz, the score submission, and highscore page. Note how the high scores are in order, how the question choices are highlighted, and the presence or lacketherof of the timer.
+Screenshots are also provided of the completed website. Note the time and different colors.  
 
-![screenshot of Start](/assets/images/Screenshot-Intro.png)
-![screenshot of Questions](/assets/images/Screenshot-Question.png)
-![screenshot of Endgame](/assets/images/Screenshot-Endgame.png)
-![screenshot of Highscore Page](/assets/images/Screenshot-Highscore.png) -->
+<!-- ![screenshot of live website](/assets/images/Screenshot-Intro.png) -->
+<!-- refactor code -->
 
 ## Credits
 
@@ -106,15 +106,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-
-
-
-
-
-<!-- 1. Have the save buttons work -->
-<!-- 2. change colors for time -->
-3. do ReadMe
-<!-- 4. Double check guidelines -->
-<!-- 5. find a way to auditTask more often -->
-6. refactor code to prevent index
