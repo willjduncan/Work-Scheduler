@@ -4,17 +4,16 @@ const timeIndexDiff = 9;
 var loadTasks = function() {
     tasks = JSON.parse(localStorage.getItem("tasks"));
     
-  // if nothing in localStorage, create a new object to track all task status arrays
+  // if localStorage returns null, place a space in the array to get the textInput to work
     if (!tasks) {
     tasks =[" ", " ", " ", " ", " ", " ", " ", " ", " "];
 
     //if there is an array, go ahead and place them in their respective spots
     } else for (var i=0; i<tasks.length; i++) {
-        console.log(tasks[i]);
         $("#index-" + i).find("p").text(tasks[i]);
         auditTask($("#index-" + i).find("p"));
     }
-
+    //Give the time
    $("#currentDay").text("Today is " + moment().format("dddd, MMMM Do YYYY, h:mm a"));
 };
 
@@ -33,6 +32,7 @@ $(".log-slot").on("click", "p", function() {
     var text = $(this)
     .text()
     .trim();
+    //add input element
     var textInput = $("<textarea>")
     .addClass("highlight")
     .val(text);
@@ -60,7 +60,6 @@ $(".log-slot").on("blur","textarea",function(){
     
     // recreate p element
     var taskP = $("<p>")
-    // .removeClass("highlight")
     .text(text);
     
     // replace textarea with p element
@@ -70,12 +69,14 @@ $(".log-slot").on("blur","textarea",function(){
     auditTask($(taskP));
 });
 
+//UPDATE COLORS
 var auditTask = function(taskEl) {
-    // get date from task element
+    // get time from task element
     var date = $(taskEl).parent().attr("id");
     console.log(date);
     date = date.slice(-1);
     date = JSON.parse(date);
+    //turn index into the hour it represents
     date = date + timeIndexDiff;
     var now = moment().hour();
     var elder = $(taskEl).parent();
@@ -84,7 +85,7 @@ var auditTask = function(taskEl) {
     // remove any old classes from element
     $(taskEl).removeClass("past present future");
     
-    // apply new class if task is near/over due date
+    // apply new class depending on time
     if (now > date) {
         $(elder).addClass("past");
     } else if (now < date) {
@@ -94,6 +95,7 @@ var auditTask = function(taskEl) {
     }
 };
 
+// SET INTERVAL FOR UPDATING TIME AND COLORS
 setInterval(function () {
     for (var i=0; i < tasks.length; i++) {
             var indexn = "index-" + i;
@@ -102,22 +104,7 @@ setInterval(function () {
             auditTask(actualEl);
     }
     $("#currentDay").text("Today is " + moment().format("dddd, MMMM Do YYYY, h:mm a"));
-}, 1000*10);
+}, 1000*30);
 
-// load tasks for the first time
+// ACTIVE LOAD TASKS
 loadTasks();
-
-// $(".log-slot").on("click", function() {
-
-//     if ($(this).children().length > 0) {
-//         return;
-//     } 
-
-//     var text = " "
-//     var textInput = $("<textarea>")
-//     .addClass("highlight")
-//     .val(text);
-
-//     $(this).append(textInput);
-//     textInput.trigger("focus");
-// });

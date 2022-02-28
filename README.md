@@ -43,20 +43,13 @@ THEN the saved events persist
 
 I began with looking over the code already in place, familiarizing myself with the classes and double-checking API sourcing. Once done, I started by adding all the HTML divs I planned to use, and began styling them, using the first two rows to test my code before applying it further down the page. 
 
-Once done with the styling and blocking, I turned my attention to javaScript. 
-<!-- First, I wrote the basic HTML, including the introduction and a few empty divs that I'd fill later on. I added a little bit of CSS next to give it a basic, but pleasant appearance. Then I created my questions, forming it in an array. 
+Once done with the styling and blocking, I turned my attention to javaScript. Using Taskmaster Pro as an example, I added the time at the top of the page and set it to update every 30 seconds. I then set the middle column up to turn into input values on click. 
 
-Next, I added a timer that would start once the Begin button was clicked. From there, I focused on finding a way to run through my array. I initially tried a for loop, but I couldn't manage to find a way to get the for loop to wait for a response click before moving on to the next question. Instead, I dissembled the for loop and made the quiz move on to the next array object by adding one to the index variable and calling the createChoice function again. This worked. 
+After that, I turned my attentions toward saving the input. I had trouble with this, but ultimately found a solution by creating an index id for each hour. That was the simplest, albeit sloppiest, way to get my code to find each p element, save its value into an array, and spit it back out in the right place. 
 
-Once the test was able to run through each question through clicking answer choices, I set up conditions to tell the user whether their answers were right or wrong, and created a variable to add up points. 
+From there, I focused on getting the colors to change based on time. Again, for the sake of success, I relied on my index id in order to assign a time. I activated all of the save buttons and refactored. 
 
-From there, I created the endgame function, which would tell the user their score and have them submit their initials. I found a way to save the first submission to localStorage, but struggled to find a way to arrange the stored names and scores in order of highscore. After much debugging and confusion, I realized it was a mislocated bracket causing the issues. 
-
-After I solved that, I added the final touches to the high score page, making sure I could retrieve those stored scores. From there, I cleaned up the code, added aspects like subtracting time for wrong questions, and added more CSS to give the new elements an acceptable aesthetic. 
-
-
-Now, when the user goes on, they see a home screen from which they can either begin the quiz or visit the high score page. The quiz runs through every question, logging the correct and wrong answers and keeping track of both the score and the time. When the quiz is finished, either by time-default or by completion, the user is told their score and is prompted to submit it, where it will be stored along with previous scores. If the player wishes to play again, there is a button redirecting them to the opening title.   -->
-
+Now, when a user goes on, they will be notified of the time with a constantly adjusting clock. By clicking the middle column they can type a task at whatever time slot they desire between 9 and 5 and by pressing the button of the right, they can save their log. In addition, the colors adjust to alert the user what parts of the schedule are over, in the future, or currently occurring. 
 
 <!-- ## Installation
 

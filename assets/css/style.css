@@ -97,7 +97,6 @@ textarea{
 }
 /* When highlighted with OnClick, do this to middle column */
 .highlight {
-  /* border: 4px solid #0080FF; */
   width: 100%;
   font-size: 15px;
   border-left: none;
@@ -107,7 +106,5 @@ textarea{
   font-weight: bolder;
   text-decoration: underline;
 }
-.middle {
 
-}
 
