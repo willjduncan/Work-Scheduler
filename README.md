@@ -76,8 +76,7 @@ Screenshots are shown of the HTML, CSS, and JavaScript pages, all built from scr
 
 Screenshots are also provided of the completed website. Note the time and different colors.  
 
-<!-- ![screenshot of live website](/assets/images/Screenshot-Intro.png) -->
-<!-- refactor code -->
+![screenshot of live website](/assets/images/screenshot-active.png)
 
 ## Credits
 
