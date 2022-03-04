@@ -55,7 +55,7 @@ Now, when a user goes on, they will be notified of the time with a constantly ad
 
 My repository on GitHub is named Work-Scheduler. The link to this repository is below.
 
-[git@github.com:willjduncan/Work-Scheduler.git](git@github.com:willjduncan/Work-Scheduler.git)
+[https://github.com/willjduncan/weather-dashboard.git](https://github.com/willjduncan/weather-dashboard.git)
 
 
 The link to the live website is below: 

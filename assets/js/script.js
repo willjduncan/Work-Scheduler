@@ -28,8 +28,8 @@ $(".btn").on("click", function() {
 });
 
 //TOGGLE EDIT 
-$(".log-slot").on("click", "p", function() {
-    var text = $(this)
+$(".log-slot").on("click", function() {
+    var text = $(this).find("p")
     .text()
     .trim();
     //add input element
@@ -37,7 +37,7 @@ $(".log-slot").on("click", "p", function() {
     .addClass("highlight")
     .val(text);
     
-    $(this).replaceWith(textInput);
+    $(this).find("p").replaceWith(textInput);
     
     textInput.trigger("focus");
 });
