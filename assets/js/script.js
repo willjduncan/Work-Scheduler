@@ -7,12 +7,13 @@ var loadTasks = function() {
   // if localStorage returns null, place a space in the array to get the textInput to work
     if (!tasks) {
     tasks =[" ", " ", " ", " ", " ", " ", " ", " ", " "];
-
-    //if there is an array, go ahead and place them in their respective spots
-    } else for (var i=0; i<tasks.length; i++) {
+    }
+    //put values into their respective spots and audit it.
+    for (var i=0; i<tasks.length; i++) {
         $("#index-" + i).find("p").text(tasks[i]);
         auditTask($("#index-" + i).find("p"));
     }
+
     //Give the time
    $("#currentDay").text("Today is " + moment().format("dddd, MMMM Do YYYY, h:mm a"));
 };
